@@ -1,0 +1,167 @@
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  padding: 22px 41px 27px 32px;
+  margin: 0;
+  color: #fff;
+  font-family: Antonio;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.05px;
+  text-transform: uppercase;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 33px;
+  padding-right: 41px;
+}
+
+.button {
+  height: 85px;
+  padding: 0;
+  border: none;
+  border-top: 4px solid transparent;
+  background-color: transparent;
+  color: #fff;
+  font-family: Spartan;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 227.273% */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.3s;
+  &__active {
+    border-top: 4px solid #419ebb;
+  }
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.2;
+}
+
+.hamburgerMenu {
+  position: absolute;
+  background: #070724;
+  top: 70px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.hamburgerMenu {
+  padding: 44px 0;
+}
+
+.hamburgerContent {
+  padding: 0 24px;
+}
+
+.hamburgerButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.circle {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+
+.planetName {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Spartan;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 166.667% */
+  letter-spacing: 1.364px;
+  text-transform: uppercase;
+}
+
+.chevron {
+  margin-left: auto;
+  margin-right: 8px;
+  display: flex;
+  justify-self: end;
+}
+
+.underlineContainer {
+  display: block;
+}
+
+.underline {
+  margin: 20px 0;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.1;
+}
+
+@media (max-width: 992px) {
+  //769
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 39px;
+  }
+  .title {
+    padding: 22px 0 0 0;
+  }
+  .buttonsContainer {
+    padding-right: 0;
+  }
+  .button {
+    height: 47px;
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  //577
+  .buttonsContainer {
+    gap: 21px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contentContainer {
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .title {
+    padding: 0;
+  }
+  .buttonsContainer {
+    display: flex;
+    height: fit-content;
+    gap: 0;
+  }
+  .button {
+    display: none;
+  }
+}
