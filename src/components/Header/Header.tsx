@@ -28,20 +28,20 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      {isHamburgerMenuOpen && <HamburgerMenu />}
+      {isHamburgerMenuOpen && <HamburgerMenu closeMenu={() => setIsHamburgerMenuOpen(false)}/>}
       <div className={styles.contentContainer}>
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>THE PLANETS</h1>
         </div>
         <div className={styles.buttonsContainer}>
-          <HeaderButton planeteName="Mercury" hoverColor={Mercury} />
-          <HeaderButton planeteName="Venus" hoverColor={Venus} />
-          <HeaderButton planeteName="Earth" hoverColor={Earth} />
-          <HeaderButton planeteName="Mars" hoverColor={Mars} />
-          <HeaderButton planeteName="Jupiter" hoverColor={Jupiter} />
-          <HeaderButton planeteName="Saturn" hoverColor={Saturn} />
-          <HeaderButton planeteName="Uranus" hoverColor={Uranus} />
-          <HeaderButton planeteName="Neptune" hoverColor={Neptune} />
+          <HeaderButton planetName="Mercury" hoverColor={Mercury} />
+          <HeaderButton planetName="Venus" hoverColor={Venus} />
+          <HeaderButton planetName="Earth" hoverColor={Earth} />
+          <HeaderButton planetName="Mars" hoverColor={Mars} />
+          <HeaderButton planetName="Jupiter" hoverColor={Jupiter} />
+          <HeaderButton planetName="Saturn" hoverColor={Saturn} />
+          <HeaderButton planetName="Uranus" hoverColor={Uranus} />
+          <HeaderButton planetName="Neptune" hoverColor={Neptune} />
           {smallScreen.mobileSize && (
             <HamburgerIcon
               onClick={() => setIsHamburgerMenuOpen((prevState) => !prevState)}
