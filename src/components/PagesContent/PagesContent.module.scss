@@ -1,0 +1,152 @@
+.pageGlobalContent {
+  padding-bottom: 100px;
+}
+
+.pageContent {
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.planetImageContainer {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 50%;
+  height: 50%;
+}
+
+.geologyImage {
+  position: relative;
+  top: 57%;
+  right: 43%;
+}
+
+.planetName {
+  margin: 0;
+  color: #fff;
+  font-family: Antonio;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.planetOverview {
+  margin: 0;
+  padding: 24px 0;
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 178.571% */
+}
+
+.planetSource {
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px; /* 178.571% */
+  opacity: 0.5;
+}
+
+.link {
+  opacity: 0.5;
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  text-decoration-line: underline;
+}
+
+.icon {
+  position: relative;
+  top: 2px;
+  fill: #fff;
+  margin-left: 8px;
+}
+
+.buttons {
+  margin-top: 39px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 16px;
+}
+
+.button {
+  background-color: #070724;
+  border: 1px solid #ffffff2a;
+  padding: 12px 28px;
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 12px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 208.333% */
+  letter-spacing: 2.571px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: #d8d8d82a;
+  }
+}
+
+.number {
+  padding-right: 28px;
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 208.333% */
+  letter-spacing: 2.571px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.planetExtraInfoContainer {
+  margin-top: 87px;
+  display: grid;
+  grid-column: 1/3;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+}
+
+.extraInfoContainer {
+  background-color: #070724;
+  padding: 20px 23px;
+  border: 1px solid #ffffff2a;
+}
+
+.extraInfoTitle {
+  margin: 0;
+  color: #fff;
+  font-family: League Spartan;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 227.273% */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.extraInfoDescr {
+  padding-top: 4px;
+  margin: 0;
+  color: #fff;
+  font-family: Antonio;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}

@@ -1,6 +1,13 @@
 import { Container } from "components/Container";
 import { Header } from "components/Header";
+import { EarthPage } from "pages/EarthPage";
+import { JupiterPage } from "pages/JupiterPage";
+import { MarsPage } from "pages/MarsPage";
 import { MercuryPage } from "pages/MercuryPage";
+import { NeptunePage } from "pages/NeptunePage";
+import { SaturnPage } from "pages/SaturnPage";
+import { UranusPage } from "pages/UranusPage";
+import { VenusPage } from "pages/VenusPage";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 function App() {
@@ -18,35 +25,35 @@ function App() {
       children: [
         {
           path: "/",
-          element: <MercuryPage/>,
+          element: <MercuryPage />,
         },
         {
           path: "/venus",
-          element: <div>Venus</div>,
+          element: <VenusPage />,
         },
         {
           path: "/earth",
-          element: <div>Earth</div>,
+          element: <EarthPage />,
         },
         {
           path: "/mars",
-          element: <div>Mars</div>,
+          element: <MarsPage />,
         },
         {
           path: "/jupiter",
-          element: <div>Jupiter</div>,
+          element: <JupiterPage />,
         },
         {
           path: "/saturn",
-          element: <div>Saturn</div>,
+          element: <SaturnPage />,
         },
         {
           path: "/uranus",
-          element: <div>Uranus</div>,
+          element: <UranusPage />,
         },
         {
           path: "/neptune",
-          element: <div>Neptune</div>,
+          element: <NeptunePage />,
         },
       ],
     },

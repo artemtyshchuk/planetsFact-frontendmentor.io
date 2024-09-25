@@ -1,6 +1,6 @@
 import { PagesContent } from "components/PagesContent";
 
-export const MercuryPage = () => {
+export const NeptunePage = () => {
   return (
     <div>
       <PagesContent />
