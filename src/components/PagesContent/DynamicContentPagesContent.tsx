@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./PagesContent.module.scss";
 import { ReactComponent as SourceIcon } from "assets/images/icon-source.svg";
 import { ButtonPageContent } from "./ButtonPageContent";

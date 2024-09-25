@@ -1,36 +1,13 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./PagesContent.module.scss";
-import { PlanetsType } from "types";
 import { DynamicContentPagesContent } from "./DynamicContentPagesContent";
-import { useLocation } from "react-router";
+import { useFetch } from "hooks/useFetch";
 
 export const PagesContent = () => {
-  const [data, setData] = useState<PlanetsType[]>([]);
+  const { data } = useFetch();
   const [activeSection, setActiveSection] = useState<
     "overview" | "structure" | "geology"
   >("overview");
-
-  const location = useLocation();
-
-  const planetName = location.pathname.replace("/", "").toLowerCase();
-
-  const fetchData = async () => {
-    const response = await fetch("data.json");
-    const planets = (await response.json()) as PlanetsType[];
-
-    const filtered = planets.filter((item) =>
-      planetName === ""
-        ? item.name.toLowerCase() === "mercury"
-        : item.name.toLowerCase() === planetName
-    );
-
-    setData(filtered);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [planetName]);
 
   return (
     <div className={styles.pageGlobalContent}>
