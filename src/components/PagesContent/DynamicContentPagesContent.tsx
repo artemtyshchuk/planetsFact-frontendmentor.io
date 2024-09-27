@@ -90,49 +90,47 @@ export const DynamicContentPagesContent = ({
           />
         </div>
       </div>
-      <div className={styles.textWrapper}>
-        <div className={styles.planetInfoContainer}>
-          <h1 className={styles.planetName}>{name}</h1>
-          <p className={styles.planetOverview}>{content}</p>
-          <span className={styles.planetSource}>
-            Source:{" "}
-            <a
-              className={styles.link}
-              href={source}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Wikipedia
-              <SourceIcon className={styles.icon} />
-            </a>
-          </span>
-          <div className={styles.buttons}>
-            <ButtonPageContent
-              number="01"
-              text="OVERVIEW"
-              active={activeSection === "overview"}
-              handleButton={() => handleButton("overview")}
-            />
-            <ButtonPageContent
-              number="02"
-              text="Internal Structure"
-              active={activeSection === "structure"}
-              handleButton={() => handleButton("structure")}
-            />
-            <ButtonPageContent
-              number="03"
-              text="Surface Geology"
-              active={activeSection === "geology"}
-              handleButton={() => handleButton("geology")}
-            />
-          </div>
+      <div className={styles.planetInfoContainer}>
+        <h1 className={styles.planetName}>{name}</h1>
+        <p className={styles.planetOverview}>{content}</p>
+        <span className={styles.planetSource}>
+          Source:{" "}
+          <a
+            className={styles.link}
+            href={source}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wikipedia
+            <SourceIcon className={styles.icon} />
+          </a>
+        </span>
+        <div className={styles.buttons}>
+          <ButtonPageContent
+            number="01"
+            text="OVERVIEW"
+            active={activeSection === "overview"}
+            handleButton={() => handleButton("overview")}
+          />
+          <ButtonPageContent
+            number="02"
+            text="Internal Structure"
+            active={activeSection === "structure"}
+            handleButton={() => handleButton("structure")}
+          />
+          <ButtonPageContent
+            number="03"
+            text="Surface Geology"
+            active={activeSection === "geology"}
+            handleButton={() => handleButton("geology")}
+          />
         </div>
-        <div className={styles.planetExtraInfoContainer}>
-          <ExtraInfoPageContent title="ROTATION TIME" descr={rotation} />
-          <ExtraInfoPageContent title="REVOLUTION TIME" descr={revolution} />
-          <ExtraInfoPageContent title="RADIUS" descr={radius} />
-          <ExtraInfoPageContent title="AVERAGE TEMP." descr={temperature} />
-        </div>
+      </div>
+      <div className={styles.planetExtraInfoContainer}>
+        <ExtraInfoPageContent title="ROTATION TIME" descr={rotation} />
+        <ExtraInfoPageContent title="REVOLUTION TIME" descr={revolution} />
+        <ExtraInfoPageContent title="RADIUS" descr={radius} />
+        <ExtraInfoPageContent title="AVERAGE TEMP." descr={temperature} />
       </div>
     </>
   );

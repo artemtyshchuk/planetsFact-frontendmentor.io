@@ -15,15 +15,15 @@
 }
 
 .planetImage {
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
 .geologyImage {
   position: absolute;
   bottom: -50px;
-  left: 35%;
+  left: 50%;
   transform: translateX(-50%);
   width: 200px;
   object-fit: contain;
@@ -261,10 +261,6 @@
     grid-template-rows: repeat(4, auto);
   }
 
-  .textWrapper {
-    padding: 0 10px;
-  }
-
   .planetImageContainer {
     display: block;
   }
@@ -301,6 +297,12 @@
     grid-row: 2/3;
   }
 
+  .planetImage {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
   .divider {
     display: block;
     width: 100%;
@@ -318,6 +320,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-row: 3/4;
+    padding: 0 10px;
   }
 
   .planetName {
@@ -338,6 +341,7 @@
     grid-template-rows: repeat(4, auto);
     row-gap: 8px;
     grid-row: 4/5;
+    padding: 0 10px;
   }
   .extraInfoContainer {
     display: flex;
