@@ -1,5 +1,5 @@
 .pageGlobalContent {
-  padding-bottom: 100px;
+  padding-bottom: 70px;
 }
 
 .pageContent {
@@ -8,17 +8,25 @@
 }
 
 .planetImageContainer {
+  position: relative;
   display: flex;
   justify-self: center;
   align-self: center;
-  width: 50%;
-  height: 50%;
+}
+
+.planetImage {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
 }
 
 .geologyImage {
-  position: relative;
-  top: 57%;
-  right: 43%;
+  position: absolute;
+  bottom: -50px;
+  left: 35%;
+  transform: translateX(-50%);
+  width: 200px;
+  object-fit: contain;
 }
 
 .planetName {
@@ -149,4 +157,218 @@
   line-height: normal;
   letter-spacing: -1.5px;
   text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+  //993
+  .pageContent {
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .extraInfoDescr {
+    font-size: 39px;
+  }
+}
+
+@media (max-width: 992px) {
+  //769
+  .pageContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  .images {
+    width: auto;
+    justify-content: center;
+    grid-row: 1/2;
+  }
+
+  .planetInfoContainer {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 60px;
+    grid-row: 2/3;
+  }
+
+  .geologyImage {
+    left: 50%;
+  }
+
+  .planetOverview {
+    grid-column: 1/2;
+    font-size: 11px;
+  }
+
+  .planetSource {
+    grid-column: 1/2;
+    font-size: 12px;
+  }
+
+  .buttons {
+    grid-row: 1/4;
+    grid-column: 2/3;
+    row-gap: 0;
+  }
+
+  .button {
+    height: 40px;
+    padding: 8px 20px;
+    font-size: 9px;
+  }
+
+  .planetName {
+    font-size: 48px;
+  }
+
+  .number {
+    padding-right: 17px;
+  }
+
+  .planetExtraInfoContainer {
+    margin-top: 27px;
+  }
+
+  .extraInfoContainer {
+    padding: 16px 15px;
+  }
+
+  .extraInfoTitle {
+    font-size: 8px;
+  }
+
+  .extraInfoDescr {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  //577
+  .buttons {
+    margin-top: 90px;
+  }
+  .extraInfoContainer {
+    padding: 12px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .pageContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .textWrapper {
+    padding: 0 10px;
+  }
+
+  .planetImageContainer {
+    display: block;
+  }
+
+  .buttons {
+    display: none;
+  }
+
+  .buttons_mobile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button {
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: fit-content;
+
+    color: #fff;
+    text-align: center;
+    font-family: Spartan;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.929px;
+    text-transform: uppercase;
+  }
+
+  .images {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    grid-row: 2/3;
+  }
+
+  .divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.2;
+  }
+
+  .geologyImage {
+    width: 100px;
+  }
+
+  .planetInfoContainer {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row: 3/4;
+  }
+
+  .planetName {
+    text-align: center;
+  }
+
+  .planetOverview {
+    text-align: center;
+  }
+
+  .planetSource {
+    text-align: center;
+  }
+
+  .planetExtraInfoContainer {
+    margin-top: 27px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    row-gap: 8px;
+    grid-row: 4/5;
+  }
+  .extraInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px;
+  }
+
+  .extraInfoTitle {
+    color: #fff;
+    font-family: Spartan;
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px; /* 200% */
+    letter-spacing: 0.727px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .extraInfoDescr {
+    padding-top: 0;
+    margin: 0;
+    color: #fff;
+    text-align: right;
+    font-family: Antonio;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.75px;
+    text-transform: uppercase;
+  }
 }

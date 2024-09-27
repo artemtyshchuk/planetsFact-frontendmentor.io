@@ -1,4 +1,5 @@
 import styles from "./PagesContent.module.scss";
+import { useEffect, useState } from "react";
 
 interface ButtonPageContentProps {
   number: string;
@@ -13,14 +14,39 @@ export const ButtonPageContent = ({
   active,
   handleButton,
 }: ButtonPageContentProps) => {
+  const [smallScreen, setSmallScreen] = useState({
+    mobileSize: window.matchMedia("(max-width: 576px)").matches,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSmallScreen({
+        mobileSize: window.matchMedia("(max-width: 576px)").matches,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const buttonStyle = smallScreen.mobileSize
+    ? {
+        backgroundColor: "transparent",
+        borderBottom: active ? "4px solid #419EBB" : "none",
+      }
+    : {
+        backgroundColor: active ? "#419EBB" : "transparent",
+      };
+
   return (
     <>
       <button
         className={styles.button}
-        style={{ backgroundColor: active ? "#419EBB" : "transparent" }}
+        style={buttonStyle}
         onClick={() => handleButton()}
       >
-        <span className={styles.number}>{number}</span>
+        <span>{number}</span>
         {text}
       </button>
     </>

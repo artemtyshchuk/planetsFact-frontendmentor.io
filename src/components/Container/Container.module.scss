@@ -2,3 +2,26 @@
   width: 80%;
   margin: 6% auto 3% auto;
 }
+
+@media (max-width: 1200px) {
+  //993
+  .container {
+    width: 90%;
+    margin: 6% auto 3% auto;
+  }
+}
+
+@media (max-width: 992px) {
+  //769
+}
+
+@media (max-width: 768px) {
+  //577
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 100%;
+    margin: 0 auto 3% auto;
+  }
+}
