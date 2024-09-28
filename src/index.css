@@ -9,7 +9,5 @@ body {
   background-image: url(./assets/images/background-stars.svg);
   background-repeat: repeat;
   background-size: cover;
-  height: calc(100vh + env(safe-area-inset-top));
-  padding-top: env(safe-area-inset-top);
   overflow-y: scroll;
 }
