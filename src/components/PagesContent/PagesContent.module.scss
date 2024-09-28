@@ -263,6 +263,7 @@
 
   .planetImageContainer {
     display: block;
+    width: 100%;
   }
 
   .buttons {
@@ -271,12 +272,13 @@
 
   .buttons_mobile {
     display: flex;
+    width: 100%;
     justify-content: space-between;
   }
 
   .button {
     border: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: 4px solid transparent;
     width: fit-content;
 
     color: #fff;

@@ -1,34 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./Header.module.scss";
 import { HeaderButton } from "./HeaderButton";
 import { PLANETS_COLORS } from "planetsСolors";
 import { HamburgerMenu } from "./HamburgerMenu";
 import { ReactComponent as HamburgerIcon } from "assets/images/icon-hamburger.svg";
+import { useScreenSize } from "hooks/useScreenSize";
+import { AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const { Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune } =
     PLANETS_COLORS;
 
-  const [smallScreen, setSmallScreen] = useState({
-    mobileSize: window.matchMedia("(max-width: 576px)").matches,
-  });
-  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
+  const { smallScreen } = useScreenSize();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setSmallScreen({
-        mobileSize: window.matchMedia("(max-width: 576px)").matches,
-      });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [isHamburgerMenuOpen, setIsHamburgerMenuOpen] = useState(false);
 
   return (
     <div className={styles.header}>
-      {isHamburgerMenuOpen && <HamburgerMenu closeMenu={() => setIsHamburgerMenuOpen(false)}/>}
+      <AnimatePresence>
+        {isHamburgerMenuOpen && (
+          <div key="hamburgerMenu">
+            <HamburgerMenu closeMenu={() => setIsHamburgerMenuOpen(false)} />
+          </div>
+        )}
+      </AnimatePresence>
+
       <div className={styles.contentContainer}>
         <div className={styles.titleContainer}>
           <h1 className={styles.title}>THE PLANETS</h1>

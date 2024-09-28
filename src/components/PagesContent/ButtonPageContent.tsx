@@ -1,5 +1,5 @@
+import { useScreenSize } from "hooks/useScreenSize";
 import styles from "./PagesContent.module.scss";
-import { useEffect, useState } from "react";
 
 interface ButtonPageContentProps {
   number: string;
@@ -14,21 +14,7 @@ export const ButtonPageContent = ({
   active,
   handleButton,
 }: ButtonPageContentProps) => {
-  const [smallScreen, setSmallScreen] = useState({
-    mobileSize: window.matchMedia("(max-width: 576px)").matches,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSmallScreen({
-        mobileSize: window.matchMedia("(max-width: 576px)").matches,
-      });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { smallScreen } = useScreenSize();
 
   const buttonStyle = smallScreen.mobileSize
     ? {

@@ -2,7 +2,8 @@ import styles from "./PagesContent.module.scss";
 import { ReactComponent as SourceIcon } from "assets/images/icon-source.svg";
 import { ButtonPageContent } from "./ButtonPageContent";
 import { ExtraInfoPageContent } from "./ExtraInfoPageContent";
-import { useEffect, useState } from "react";
+import { useScreenSize } from "hooks/useScreenSize";
+import { motion } from "framer-motion";
 
 interface DynamicContentPagesContentProps {
   planetImage?: string;
@@ -18,6 +19,21 @@ interface DynamicContentPagesContentProps {
   activeSection: "overview" | "structure" | "geology";
 }
 
+const imageVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.1 } },
+};
+
+const contentVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
+};
+
+const extraInfoVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
+};
+
 export const DynamicContentPagesContent = ({
   planetImage,
   image,
@@ -31,27 +47,17 @@ export const DynamicContentPagesContent = ({
   handleButton,
   activeSection,
 }: DynamicContentPagesContentProps) => {
-  const [smallScreen, setSmallScreen] = useState({
-    mobileSize: window.matchMedia("(max-width: 576px)").matches,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSmallScreen({
-        mobileSize: window.matchMedia("(max-width: 576px)").matches,
-      });
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { smallScreen } = useScreenSize();
 
   return (
     <>
-      <div className={styles.planetImageContainer}>
+      <motion.div
+        className={styles.planetImageContainer}
+        initial="initial"
+        animate="animate"
+      >
         {smallScreen.mobileSize && (
-          <div className={styles.buttons_mobile}>
+          <motion.div className={styles.buttons_mobile}>
             <ButtonPageContent
               number=""
               text="OVERVIEW"
@@ -70,27 +76,38 @@ export const DynamicContentPagesContent = ({
               active={activeSection === "geology"}
               handleButton={() => handleButton("geology")}
             />
-          </div>
+          </motion.div>
         )}
         {smallScreen.mobileSize && <span className={styles.divider}></span>}
         <div className={styles.images}>
           {planetImage && (
-            <img
+            <motion.img
               src={planetImage}
               alt="planetImage"
               className={styles.planetImage}
+              variants={imageVariants}
+              initial="initial"
+              animate="animate"
             />
           )}
-          <img
+          <motion.img
             src={image}
             alt="planetImage"
             className={` ${styles.planetImage} ${
               activeSection === "geology" && styles.geologyImage
             }`}
+            variants={imageVariants}
+            initial="initial"
+            animate="animate"
           />
         </div>
-      </div>
-      <div className={styles.planetInfoContainer}>
+      </motion.div>
+      <motion.div
+        className={styles.planetInfoContainer}
+        variants={contentVariants}
+        initial="initial"
+        animate="animate"
+      >
         <h1 className={styles.planetName}>{name}</h1>
         <p className={styles.planetOverview}>{content}</p>
         <span className={styles.planetSource}>
@@ -125,13 +142,18 @@ export const DynamicContentPagesContent = ({
             handleButton={() => handleButton("geology")}
           />
         </div>
-      </div>
-      <div className={styles.planetExtraInfoContainer}>
+      </motion.div>
+      <motion.div
+        variants={extraInfoVariants}
+        initial="initial"
+        animate="animate"
+        className={styles.planetExtraInfoContainer}
+      >
         <ExtraInfoPageContent title="ROTATION TIME" descr={rotation} />
         <ExtraInfoPageContent title="REVOLUTION TIME" descr={revolution} />
         <ExtraInfoPageContent title="RADIUS" descr={radius} />
         <ExtraInfoPageContent title="AVERAGE TEMP." descr={temperature} />
-      </div>
+      </motion.div>
     </>
   );
 };
