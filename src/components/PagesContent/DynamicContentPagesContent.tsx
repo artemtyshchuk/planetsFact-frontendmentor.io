@@ -21,15 +21,10 @@ interface DynamicContentPagesContentProps {
 
 const imageVariants = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.1 } },
-};
-
-const contentVariants = {
-  initial: { opacity: 0 },
   animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
 };
 
-const extraInfoVariants = {
+const contentVariants = {
   initial: { opacity: 0 },
   animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
 };
@@ -143,17 +138,12 @@ export const DynamicContentPagesContent = ({
           />
         </div>
       </motion.div>
-      <motion.div
-        variants={extraInfoVariants}
-        initial="initial"
-        animate="animate"
-        className={styles.planetExtraInfoContainer}
-      >
+      <div className={styles.planetExtraInfoContainer}>
         <ExtraInfoPageContent title="ROTATION TIME" descr={rotation} />
         <ExtraInfoPageContent title="REVOLUTION TIME" descr={revolution} />
         <ExtraInfoPageContent title="RADIUS" descr={radius} />
         <ExtraInfoPageContent title="AVERAGE TEMP." descr={temperature} />
-      </motion.div>
+      </div>
     </>
   );
 };

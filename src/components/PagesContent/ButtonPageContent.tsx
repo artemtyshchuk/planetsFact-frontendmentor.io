@@ -32,7 +32,7 @@ export const ButtonPageContent = ({
         style={buttonStyle}
         onClick={() => handleButton()}
       >
-        <span>{number}</span>
+        <span className={styles.number}>{number}</span>
         {text}
       </button>
     </>
