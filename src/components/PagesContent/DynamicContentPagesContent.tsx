@@ -138,12 +138,17 @@ export const DynamicContentPagesContent = ({
           />
         </div>
       </motion.div>
-      <div className={styles.planetExtraInfoContainer}>
+      <motion.div
+        variants={contentVariants}
+        initial="initial"
+        animate="animate"
+        className={styles.planetExtraInfoContainer}
+      >
         <ExtraInfoPageContent title="ROTATION TIME" descr={rotation} />
         <ExtraInfoPageContent title="REVOLUTION TIME" descr={revolution} />
         <ExtraInfoPageContent title="RADIUS" descr={radius} />
         <ExtraInfoPageContent title="AVERAGE TEMP." descr={temperature} />
-      </div>
+      </motion.div>
     </>
   );
 };
