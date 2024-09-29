@@ -1,11 +1,13 @@
 import { useScreenSize } from "hooks/useScreenSize";
 import styles from "./PagesContent.module.scss";
+import { PLANETS_COLORS } from "planetsСolors";
 
 interface ButtonPageContentProps {
   number: string;
   text: string;
   active: boolean;
   handleButton: () => void;
+  planet: keyof typeof PLANETS_COLORS;
 }
 
 export const ButtonPageContent = ({
@@ -13,16 +15,17 @@ export const ButtonPageContent = ({
   text,
   active,
   handleButton,
+  planet,
 }: ButtonPageContentProps) => {
   const { smallScreen } = useScreenSize();
 
   const buttonStyle = smallScreen.mobileSize
     ? {
         backgroundColor: "transparent",
-        borderBottom: active ? "4px solid #419EBB" : "none",
+        borderBottom: active ? `4px solid ${PLANETS_COLORS[planet]}` : "none",
       }
     : {
-        backgroundColor: active ? "#419EBB" : "transparent",
+        backgroundColor: active ? PLANETS_COLORS[planet] : "transparent",
       };
 
   return (

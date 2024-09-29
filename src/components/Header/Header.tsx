@@ -41,6 +41,7 @@ export const Header = () => {
           {smallScreen.mobileSize && (
             <HamburgerIcon
               onClick={() => setIsHamburgerMenuOpen((prevState) => !prevState)}
+              data-testid="hamburgerIcon"
             />
           )}
         </div>

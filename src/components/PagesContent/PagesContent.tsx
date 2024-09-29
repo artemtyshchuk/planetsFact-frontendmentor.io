@@ -10,7 +10,7 @@ export const PagesContent = () => {
   >("overview");
 
   return (
-    <div className={styles.pageGlobalContent}>
+    <div className={styles.pageGlobalContent} data-testid="pageContent">
       {data.length > 0 &&
         data.map((planet) => (
           <div key={planet.name} className={styles.pageContent}>
@@ -26,6 +26,7 @@ export const PagesContent = () => {
                 temperature={planet.temperature}
                 handleButton={(section) => setActiveSection(section)}
                 activeSection={activeSection}
+                planet={planet.name}
               />
             )}
             {activeSection === "structure" && (
@@ -40,6 +41,7 @@ export const PagesContent = () => {
                 temperature={planet.temperature}
                 handleButton={(section) => setActiveSection(section)}
                 activeSection={activeSection}
+                planet={planet.name}
               />
             )}
             {activeSection === "geology" && (
@@ -55,6 +57,7 @@ export const PagesContent = () => {
                 temperature={planet.temperature}
                 handleButton={(section) => setActiveSection(section)}
                 activeSection={activeSection}
+                planet={planet.name}
               />
             )}
           </div>

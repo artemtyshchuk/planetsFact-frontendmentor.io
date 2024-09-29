@@ -1,7 +1,7 @@
 import { PLANETS_COLORS } from "planetsСolors";
 import { HamburgerButton } from "./HamburgerButton";
 import styles from "./Header.module.scss";
-import { motion, AnimatePresence } from "framer-motion"; // Добавляем фреймер анимации
+import { motion } from "framer-motion"; 
 
 interface HamburgerMenuProps {
   closeMenu: () => void;
@@ -41,6 +41,7 @@ export const HamburgerMenu = ({ closeMenu }: HamburgerMenuProps) => {
       animate="visible"
       exit="exit"
       className={styles.hamburgerMenu}
+      data-testid="hamburgerMenu"
     >
       <HamburgerButton
         planetName="Mercury"

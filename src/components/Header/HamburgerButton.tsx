@@ -28,7 +28,11 @@ export const HamburgerButton = ({
 
   return (
     <div className={styles.hamburgerContent}>
-      <div className={styles.hamburgerButtons} onClick={handleClose}>
+      <div
+        className={styles.hamburgerButtons}
+        onClick={handleClose}
+        data-testid="hamburgerButton"
+      >
         <span
           className={styles.circle}
           style={{ backgroundColor: `${color}` }}

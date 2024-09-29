@@ -1,9 +1,10 @@
 import styles from "./PagesContent.module.scss";
 import { ReactComponent as SourceIcon } from "assets/images/icon-source.svg";
-import { ButtonPageContent } from "./ButtonPageContent";
 import { ExtraInfoPageContent } from "./ExtraInfoPageContent";
 import { useScreenSize } from "hooks/useScreenSize";
 import { motion } from "framer-motion";
+import { PLANETS_COLORS } from "planetsСolors";
+import { ButtonGroup } from "./ButtonGroup";
 
 interface DynamicContentPagesContentProps {
   planetImage?: string;
@@ -17,17 +18,8 @@ interface DynamicContentPagesContentProps {
   temperature: string;
   handleButton: (section: "overview" | "structure" | "geology") => void;
   activeSection: "overview" | "structure" | "geology";
+  planet: keyof typeof PLANETS_COLORS;
 }
-
-const imageVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
-};
-
-const contentVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
-};
 
 export const DynamicContentPagesContent = ({
   planetImage,
@@ -41,8 +33,19 @@ export const DynamicContentPagesContent = ({
   temperature,
   handleButton,
   activeSection,
+  planet,
 }: DynamicContentPagesContentProps) => {
   const { smallScreen } = useScreenSize();
+
+  const imageVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
+  };
+
+  const contentVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.5, delay: 0.2 } },
+  };
 
   return (
     <>
@@ -52,28 +55,16 @@ export const DynamicContentPagesContent = ({
         animate="animate"
       >
         {smallScreen.mobileSize && (
-          <motion.div className={styles.buttons_mobile}>
-            <ButtonPageContent
-              number=""
-              text="OVERVIEW"
-              active={activeSection === "overview"}
-              handleButton={() => handleButton("overview")}
-            />
-            <ButtonPageContent
-              number=""
-              text="Structure"
-              active={activeSection === "structure"}
-              handleButton={() => handleButton("structure")}
-            />
-            <ButtonPageContent
-              number=""
-              text="Geology"
-              active={activeSection === "geology"}
-              handleButton={() => handleButton("geology")}
-            />
-          </motion.div>
+          <ButtonGroup
+            activeSection={activeSection}
+            handleButton={handleButton}
+            planet={planet}
+            isMobile={true}
+          />
         )}
+
         {smallScreen.mobileSize && <span className={styles.divider}></span>}
+
         <div className={styles.images}>
           {planetImage && (
             <motion.img
@@ -97,6 +88,7 @@ export const DynamicContentPagesContent = ({
           />
         </div>
       </motion.div>
+
       <motion.div
         className={styles.planetInfoContainer}
         variants={contentVariants}
@@ -117,27 +109,14 @@ export const DynamicContentPagesContent = ({
             <SourceIcon className={styles.icon} />
           </a>
         </span>
-        <div className={styles.buttons}>
-          <ButtonPageContent
-            number="01"
-            text="OVERVIEW"
-            active={activeSection === "overview"}
-            handleButton={() => handleButton("overview")}
-          />
-          <ButtonPageContent
-            number="02"
-            text="Internal Structure"
-            active={activeSection === "structure"}
-            handleButton={() => handleButton("structure")}
-          />
-          <ButtonPageContent
-            number="03"
-            text="Surface Geology"
-            active={activeSection === "geology"}
-            handleButton={() => handleButton("geology")}
-          />
-        </div>
+        <ButtonGroup
+          activeSection={activeSection}
+          handleButton={handleButton}
+          planet={planet}
+          isMobile={false}
+        />
       </motion.div>
+
       <motion.div
         variants={contentVariants}
         initial="initial"
